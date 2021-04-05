@@ -1,0 +1,68 @@
+<div class="container">
+  <h1>Editar produto</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label class="input-title">Nome</label>
+
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      placeholder="Ex: Batata frita"
+      autofocus
+    />
+
+    <label class="input-title">Descrição</label>
+
+    <input
+      type="text"
+      class="form-control"
+      formControlName="description"
+      placeholder="Acomapanha queijo e bacon"
+    />
+
+    <label class="input-title">Categoria</label>
+
+    <select class="custom-select" formControlName="idCategory">
+      <option hidden selected>Selecionar</option>
+      <option
+        *ngFor="let category of categories$ | async"
+        [value]="category.id"
+      >
+        {{ category.name }}
+      </option>
+    </select>
+
+    <label class="input-title">Preço</label>
+
+    <input
+      type="text"
+      class="form-control"
+      formControlName="price"
+      placeholder="Ex: 30"
+    />
+
+    <label class="input-title">Imagem</label>
+
+    <input
+      type="text"
+      class="form-control"
+      formControlName="image"
+      placeholder="Insira link da imagem"
+    />
+
+    <btn
+      class="btn-success btn-lg bold mr-2"
+      type="submit"
+      label="Salvar categoria"
+    >
+    </btn>
+
+    <btn
+      class="btn-secondary btn-lg bold"
+      type="button"
+      label="Voltar"
+      routerLink="/products"
+    ></btn>
+  </form>
+</div>

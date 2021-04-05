@@ -1,0 +1,88 @@
+{
+  "products": [
+    {
+      "name": "Coca-Cola Lata",
+      "price": "5,00",
+      "description": "350ml",
+      "idCategory": "1",
+      "image": "https://araujo.vteximg.com.br/arquivos/ids/4042618-1000-1000/07894900010015.jpg?v=637436775975100000",
+      "id": 1
+    },
+    {
+      "name": "Cheseburguer",
+      "price": "15,00",
+      "description": "Pão, Carne e Queijo",
+      "idCategory": "2",
+      "image": "https://cdn.panelinha.com.br/receita/1330398000000-Cheeseburger.jpg",
+      "id": 2
+    }
+  ],
+  "categories": [
+    {
+      "name": "Bebidas",
+      "description": "Refrigerantes e Sucos",
+      "id": 1
+    },
+    {
+      "name": "Sanduiches",
+      "description": "Sanduiches",
+      "id": 2
+    }
+  ],
+  "orders": [
+    {
+      "id": 1,
+      "totalPrice": 50,
+      "user": "admin",
+      "idProducts": [
+        1,
+        2,
+        3
+      ]
+    },
+    {
+      "totalPrice": 40,
+      "user": "admin",
+      "idCategory": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "id": 2
+    },
+    {
+      "totalPrice": 5,
+      "user": "admin",
+      "idCategory": [
+        1
+      ],
+      "id": 3
+    },
+    {
+      "totalPrice": 5,
+      "user": "admin",
+      "idCategory": [
+        1
+      ],
+      "id": 4
+    },
+    {
+      "totalPrice": 5,
+      "user": "admin",
+      "idCategory": [
+        1
+      ],
+      "id": 5
+    },
+    {
+      "totalPrice": 20,
+      "user": "admin",
+      "idCategory": [
+        1,
+        2
+      ],
+      "id": 6
+    }
+  ]
+}

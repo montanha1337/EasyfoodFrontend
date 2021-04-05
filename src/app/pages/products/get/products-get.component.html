@@ -1,0 +1,53 @@
+<div class="container">
+  <h1>Produtos</h1>
+
+  <btn label="Novo produto" class="btn-success" routerLink="create"></btn>
+
+  <div class="mt-4">
+    <div class="form">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>Nome</th>
+
+              <th>Descrição</th>
+
+              <th>Valor</th>
+
+              <th class="text-center">Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let product of products$ | async">
+              <td>{{ product.name }}</td>
+
+              <td>{{ product.description }}</td>
+
+              <td>R$ {{ product.price }}</td>
+
+              <td class="text-center">
+                <a (click)="delete(product.id)">
+                  <img
+                    class="mr-3"
+                    src="../../../../assets/images/delete.svg"
+                    alt="deletar registro"
+                    height="20"
+                  />
+                </a>
+
+                <a [routerLink]="[product.id]">
+                  <img
+                    src="../../../../assets/images/edit.svg"
+                    alt="editar registro"
+                    height="20"
+                  />
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

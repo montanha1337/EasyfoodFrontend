@@ -1,0 +1,61 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-8">
+      <div *ngFor="let category of categories$ | async">
+        <h1>{{ category.name }}</h1>
+        <div class="row">
+          <ng-container *ngFor="let product of products$ | async">
+            <div
+              class="col-12 col-sm-6 col-md-4"
+              *ngIf="category.id == product.idCategory"
+            >
+              <div class="card" (click)="selectItem(product)">
+                <img
+                  class="card-image"
+                  [src]="product.image"
+                  alt="item.descricao"
+                />
+
+                <div class="card-content">
+                  <h1 class="card-title">{{ product.name }}</h1>
+
+                  <p class="card-description">{{ product.description }}</p>
+
+                  <span class="card-price">R${{ product.price | price }}</span>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4" *ngIf="totalPrice > 0">
+      <div class="order">
+        <div class="order-title">Itens do pedido</div>
+
+        <div
+          class="order-item"
+          *ngFor="let selected of selectedItems; index as i"
+        >
+          {{ selected.name }} x R${{ selected.price | price }}
+
+          <h5 (click)="removeItem(i)">Remover item</h5>
+        </div>
+
+        <div class="order-total" *ngIf="totalPrice > 0">
+          <h2 class="order-price">Valor total</h2>
+
+          <h2 *ngIf="totalPrice">R${{ totalPrice | price }}</h2>
+        </div>
+
+        <btn
+          *ngIf="selectedItems.length"
+          class="btn-danger btn-lg btn-block bold"
+          label="Finalizar pedido"
+          (onClick)="finishOrder()"
+        ></btn>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Nova categoria</h1>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label class="input-title">Nome</label>
+
+    <input
+      type="text"
+      class="form-control"
+      formControlName="name"
+      placeholder="Ex: Bebidas"
+      autofocus
+    />
+
+    <label class="input-title">Descrição</label>
+
+    <input
+      type="text"
+      class="form-control"
+      formControlName="description"
+      placeholder="Ex: Refrigerantes e sucos"
+    />
+
+    <btn
+      class="btn-success btn-lg bold mr-2"
+      type="submit"
+      label="Criar categoria"
+    >
+    </btn>
+
+    <btn
+      class="btn-secondary btn-lg bold"
+      type="button"
+      label="Voltar"
+      routerLink="/category"
+    ></btn>
+  </form>
+</div>

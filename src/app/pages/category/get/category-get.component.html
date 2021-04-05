@@ -1,0 +1,49 @@
+<div class="container">
+  <h1>Categorias</h1>
+
+  <btn label="Nova categoria" class="btn-success" routerLink="create"></btn>
+
+  <div class="mt-4">
+    <div class="form">
+      <div class="table-responsive">
+        <table class="table">
+          <thead class="thead-light">
+            <tr>
+              <th>Nome</th>
+
+              <th>Descrição</th>
+
+              <th class="text-center">Editar</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let category of categories$ | async">
+              <td>{{ category.name }}</td>
+
+              <td>{{ category.description }}</td>
+
+              <td class="text-center">
+                <a (click)="delete(category.id)">
+                  <img
+                    class="mr-3"
+                    src="../../../../assets/images/delete.svg"
+                    alt="deletar registro"
+                    height="20"
+                  />
+                </a>
+
+                <a [routerLink]="[category.id]">
+                  <img
+                    src="../../../../assets/images/edit.svg"
+                    alt="editar registro"
+                    height="20"
+                  />
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>
