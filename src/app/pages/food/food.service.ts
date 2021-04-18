@@ -6,12 +6,9 @@ import { ApiService } from 'src/app/core/services/api.service'
   providedIn: 'root'
 })
 export class FoodService {
-
   constructor(private service: ApiService) {
-
   }
   post(data: object): Observable<any> {
     return this.service.post('orders', data)
   }
-
 }

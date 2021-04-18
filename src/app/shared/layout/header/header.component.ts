@@ -17,7 +17,7 @@ export class HeaderComponent extends BaseComponent implements OnInit {
     super()
   }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   toggleMenu() {
     this.openMobile = !this.openMobile

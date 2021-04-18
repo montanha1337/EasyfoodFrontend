@@ -8,6 +8,9 @@ import { MatIconModule } from '@angular/material/icon'
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner'
 import { MatCardModule } from '@angular/material/card'
 import { MatSnackBarModule } from '@angular/material/snack-bar'
+import { MatMenuModule } from '@angular/material/menu'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input'
 
 import { AppRoutesModule } from './app.routes'
 import { AppComponent } from './app.component'
@@ -23,10 +26,11 @@ import { HomeComponent } from './pages/home/home.component'
 import { MobileMenuComponent } from './shared/layout/mobile-menu/mobile-menu.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FoodComponent } from './pages/food/food.component'
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component'
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, MobileMenuComponent, FoodComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, MobileMenuComponent, FoodComponent, AdminLoginComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -40,6 +44,10 @@ import { FoodComponent } from './pages/food/food.component'
     MatProgressSpinnerModule,
     MatCardModule,
     MatSnackBarModule,
+    MatMenuModule,
+    MatFormFieldModule,
+    BrowserAnimationsModule,
+    MatInputModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -14,12 +14,10 @@ export class FoodComponent implements OnInit {
    * Lista de produtos
    */
   products$: Observable<any>
-
   /**
    * Lista de categorias
    */
   categories$: Observable<any>
-
   /**
    * Lista de itens do pedido
    */

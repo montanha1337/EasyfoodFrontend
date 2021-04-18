@@ -47,10 +47,10 @@
 
   <div class="navbar-right" *ngIf="!isSM; else mobile">
     <div class="navbar-right-item">
-      <a routerLink="shopping" routerLinkActive="active">Cardápio</a>
+      <a routerLink="" routerLinkActive="active">Cardápio</a>
     </div>
 
-    <div class="navbar-right-item">
+    <!-- <div class="navbar-right-item">
       <a routerLink="category" routerLinkActive="active">Categoria</a>
     </div>
 
@@ -60,9 +60,25 @@
 
     <div class="navbar-right-item">
       <a routerLink="order" routerLinkActive="active">Pedidos</a>
-    </div>
+    </div> -->
   </div>
-
+  <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item>
+      <mat-icon>person</mat-icon>
+      <span>Minha conta</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>list_alt</mat-icon>
+      <span>Meus pedidos</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>logout</mat-icon>
+      <span>Sair</span>
+    </button>
+  </mat-menu>
   <ng-template #mobile>
     <div class="navbar-right">
       <img src="../../../../assets/images/menu.svg" alt="abrir menu" (click)="toggleMenu()" height="20" />
