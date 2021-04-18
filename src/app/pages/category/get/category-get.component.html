@@ -2,7 +2,6 @@
   <h1>Categorias</h1>
 
   <btn label="Nova categoria" class="btn-success" routerLink="create"></btn>
-
   <div class="mt-4">
     <div class="form">
       <div class="table-responsive">
@@ -24,20 +23,11 @@
 
               <td class="text-center">
                 <a (click)="delete(category.id)">
-                  <img
-                    class="mr-3"
-                    src="../../../../assets/images/delete.svg"
-                    alt="deletar registro"
-                    height="20"
-                  />
+                  <img class="mr-3" src="../../../../assets/images/delete.svg" alt="deletar registro" height="20" />
                 </a>
 
                 <a [routerLink]="[category.id]">
-                  <img
-                    src="../../../../assets/images/edit.svg"
-                    alt="editar registro"
-                    height="20"
-                  />
+                  <img src="../../../../assets/images/edit.svg" alt="editar registro" height="20" />
                 </a>
               </td>
             </tr>

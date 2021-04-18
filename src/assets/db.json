@@ -83,6 +83,14 @@
         2
       ],
       "id": 6
+    },
+    {
+      "totalPrice": 5,
+      "user": "admin",
+      "idCategory": [
+        1
+      ],
+      "id": 7
     }
   ]
 }

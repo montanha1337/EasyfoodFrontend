@@ -1,15 +1,11 @@
-<nav class="navbar">
+<!-- <nav class="navbar">
   <div class="navbar-brand">
     <a routerLink="/">EasyFood</a>
   </div>
 
   <div *ngIf="api.isLoading">
-    <img
-      class="ml-3 loading"
-      src="../../../../assets/images/loading.svg"
-      alt="carregando"
-      [height]="isSM ? '5' : '10'"
-    />
+    <img class="ml-3 loading" src="../../../../assets/images/loading.svg" alt="carregando"
+      [height]="isSM ? '5' : '10'" />
   </div>
 
   <div class="navbar-right" *ngIf="!isSM; else mobile">
@@ -32,17 +28,46 @@
 
   <ng-template #mobile>
     <div class="navbar-right">
-      <img
-        src="../../../../assets/images/menu.svg"
-        alt="abrir menu"
-        (click)="toggleMenu()"
-        height="20"
-      />
+      <img src="../../../../assets/images/menu.svg" alt="abrir menu" (click)="toggleMenu()" height="20" />
     </div>
 
-    <app-mobile-menu
-      [open]="openMobile"
-      (onClose)="toggleMenu()"
-    ></app-mobile-menu>
+    <app-mobile-menu [open]="openMobile" (onClose)="toggleMenu()"></app-mobile-menu>
   </ng-template>
-</nav>
+</nav> -->
+
+
+<mat-toolbar color="primary">
+  <div class="navbar-brand">
+    <a routerLink="/">EasyFood</a>
+  </div>
+  <div *ngIf="api.isLoading">
+    <img class="ml-3 loading" src="../../../../assets/images/loading.svg" alt="carregando"
+      [height]="isSM ? '5' : '10'" />
+  </div>
+
+  <div class="navbar-right" *ngIf="!isSM; else mobile">
+    <div class="navbar-right-item">
+      <a routerLink="shopping" routerLinkActive="active">Cardápio</a>
+    </div>
+
+    <div class="navbar-right-item">
+      <a routerLink="category" routerLinkActive="active">Categoria</a>
+    </div>
+
+    <div class="navbar-right-item">
+      <a routerLink="products" routerLinkActive="active">Produtos</a>
+    </div>
+
+    <div class="navbar-right-item">
+      <a routerLink="order" routerLinkActive="active">Pedidos</a>
+    </div>
+  </div>
+
+  <ng-template #mobile>
+    <div class="navbar-right">
+      <img src="../../../../assets/images/menu.svg" alt="abrir menu" (click)="toggleMenu()" height="20" />
+    </div>
+
+    <app-mobile-menu [open]="openMobile" (onClose)="toggleMenu()"></app-mobile-menu>
+  </ng-template>
+</mat-toolbar>

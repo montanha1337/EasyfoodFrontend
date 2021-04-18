@@ -1,12 +1,18 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
+import { FoodComponent } from './pages/food/food.component'
 
 import { HomeComponent } from './pages/home/home.component'
+
 
 const routes: Routes = [
   {
     path: '',
     component: HomeComponent,
+  },
+  {
+    path: 'food',
+    component: FoodComponent,
   },
   {
     path: 'shopping',
@@ -31,4 +37,4 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [],
 })
-export class AppRoutesModule {}
+export class AppRoutesModule { }
