@@ -1,9 +1,11 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component'
+import { CheckoutComponent } from './pages/checkout/checkout.component'
 import { FoodComponent } from './pages/food/food.component'
 
 import { HomeComponent } from './pages/home/home.component'
+import { LoginComponent } from './pages/login/login.component'
 
 
 const routes: Routes = [
@@ -14,6 +16,14 @@ const routes: Routes = [
   {
     path: 'admin',
     component: AdminLoginComponent,
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'checkout',
+    component: CheckoutComponent,
   },
   {
     path: 'shopping',

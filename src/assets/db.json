@@ -27,6 +27,11 @@
       "name": "Sanduiches",
       "description": "Sanduiches",
       "id": 2
+    },
+    {
+      "name": "Acompanhamentos",
+      "description": "Batatas",
+      "id": 3
     }
   ],
   "orders": [
