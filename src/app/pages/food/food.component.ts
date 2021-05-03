@@ -3,11 +3,15 @@ import { FoodService } from './food.service'
 import { ProductsService } from '../products/products.service'
 import { CategoryService } from '../category/category.service'
 import { Observable } from 'rxjs'
+import { Injectable } from '@angular/core'
 
 @Component({
   selector: 'app-shopping',
   templateUrl: './food.component.html',
   styleUrls: ['./food.component.scss'],
+})
+@Injectable({
+  providedIn: 'root'
 })
 export class FoodComponent implements OnInit {
   /**

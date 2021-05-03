@@ -11,9 +11,10 @@ import { MatSnackBarModule } from '@angular/material/snack-bar'
 import { MatMenuModule } from '@angular/material/menu'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
-import { matTabsAnimations, MatTabsModule } from '@angular/material/tabs';
-import {MatDialogModule} from '@angular/material/dialog';
-import {MatStepperModule} from '@angular/material/stepper';
+import { matTabsAnimations, MatTabsModule } from '@angular/material/tabs'
+import { MatDialogModule } from '@angular/material/dialog'
+import { MatStepperModule } from '@angular/material/stepper'
+import { MatBadgeModule } from '@angular/material/badge'
 
 import { AppRoutesModule } from './app.routes'
 import { AppComponent } from './app.component'
@@ -29,15 +30,16 @@ import { HomeComponent } from './pages/home/home.component'
 import { MobileMenuComponent } from './shared/layout/mobile-menu/mobile-menu.component'
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { FoodComponent } from './pages/food/food.component'
-import { AdminLoginComponent } from './admin/admin-login/admin-login.component';
-import { MinhaContaComponent } from './pages/account/minha-conta/minha-conta.component';
-import { MeusPedidosComponent } from './pages/account/meus-pedidos/meus-pedidos.component';
-import { LoginComponent } from './pages/login/login.component';
+import { AdminLoginComponent } from './admin/admin-login/admin-login.component'
+import { MinhaContaComponent } from './pages/account/minha-conta/minha-conta.component'
+import { MeusPedidosComponent } from './pages/account/meus-pedidos/meus-pedidos.component'
+import { LoginComponent } from './pages/login/login.component'
 import { CheckoutComponent } from './pages/checkout/checkout.component'
 
 
 @NgModule({
-  declarations: [AppComponent, HeaderComponent, HomeComponent, MobileMenuComponent, FoodComponent, AdminLoginComponent, MinhaContaComponent, MeusPedidosComponent, LoginComponent, CheckoutComponent],
+  declarations: [AppComponent, HeaderComponent, HomeComponent, MobileMenuComponent,
+    FoodComponent, AdminLoginComponent, MinhaContaComponent, MeusPedidosComponent, LoginComponent, CheckoutComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
@@ -58,6 +60,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component'
     MatTabsModule,
     MatDialogModule,
     MatStepperModule,
+    MatBadgeModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

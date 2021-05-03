@@ -33,7 +33,8 @@
         <div class="order-title">Itens do pedido</div>
         <p class="order-item" *ngFor="let selected of selectedItems; index as i">
           {{ selected.name }} x R${{ selected.price}}
-          <button mat-icon-button color="warn" aria-label="Example icon button with a delete icon" (click)="removeItem(i)">
+          <button mat-icon-button color="warn" aria-label="Example icon button with a delete icon"
+            (click)="removeItem(i)">
             <mat-icon>delete</mat-icon>
           </button>
 
@@ -46,7 +47,8 @@
           <h2 class="order-price">Valor total</h2>
           <h2 *ngIf="totalPrice">R${{ totalPrice }}</h2>
         </div>
-        <button class="btn-finish" mat-raised-button color="primary">Finalizar pedido</button>
+        <button class="btn-finish" mat-raised-button color="primary" routerLink="checkout"
+          routerLinkActive="active">Finalizar pedido</button>
       </div>
     </div>
   </div>

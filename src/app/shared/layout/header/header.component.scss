@@ -13,7 +13,17 @@
 .loading {
   margin-top: 0.7rem;
 }
+.mat-badge-medium.mat-badge-above .mat-badge-content {
+  top: -2px;
+  right: -8px;
+}
+.mat-badge-content {
+  background: red;
+  color: white;
 
+  top: unset;
+  right: unset;
+}
 @media (max-width: $break-small) {
   .navbar {
     top: 0;
