@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core'
 import { Routes, RouterModule } from '@angular/router'
 import { AdminLoginComponent } from './admin/admin-login/admin-login.component'
+import { MinhaContaComponent } from './pages/account/minha-conta/minha-conta.component'
 import { CheckoutComponent } from './pages/checkout/checkout.component'
 import { FoodComponent } from './pages/food/food.component'
 
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'checkout',
     component: CheckoutComponent,
+  },
+  {
+    path: 'minhaconta',
+    component: MinhaContaComponent,
   },
   {
     path: 'shopping',

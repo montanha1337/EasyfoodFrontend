@@ -12,9 +12,12 @@ import { MatMenuModule } from '@angular/material/menu'
 import { MatFormFieldModule } from '@angular/material/form-field'
 import { MatInputModule } from '@angular/material/input'
 import { matTabsAnimations, MatTabsModule } from '@angular/material/tabs'
+import { MatSidenavModule } from '@angular/material/sidenav'
 import { MatDialogModule } from '@angular/material/dialog'
 import { MatStepperModule } from '@angular/material/stepper'
 import { MatBadgeModule } from '@angular/material/badge'
+import { MatListModule } from '@angular/material/list'
+
 
 import { AppRoutesModule } from './app.routes'
 import { AppComponent } from './app.component'
@@ -61,6 +64,8 @@ import { CheckoutComponent } from './pages/checkout/checkout.component'
     MatDialogModule,
     MatStepperModule,
     MatBadgeModule,
+    MatSidenavModule,
+    MatListModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,8 +1,25 @@
 .sidenav{
   height: 100%;
+  width: 200px;
+  position: fixed;
+  padding-top: 20px;
+  background-color:#f1f1f1;
+
+}
+
+.sidenav a:hover {
+  color: white;
+  background-color: #673ab7;
+}
+
+.list{
+}
+a{
+  text-decoration: none;
 }
 mat-sidenav{
-  width: auto;
+  width: 200px;
+
 }
 ul{
   list-style-type: none;
@@ -10,9 +27,10 @@ ul{
   padding: 0;
 }
 mat-sidenav-content{
-  
+
 }
-a{
-  text-decoration: none;
-  
+
+.content{
+  margin-left: 200px;
+  padding: 0px 10px;
 }
