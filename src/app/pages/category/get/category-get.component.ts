@@ -14,7 +14,7 @@ export class CategoryGetComponent implements OnInit {
    */
   categories$: Observable<any>
 
-  constructor(private service: CategoryService) {}
+  constructor(private service: CategoryService) { }
 
   /**
    * Inicialização

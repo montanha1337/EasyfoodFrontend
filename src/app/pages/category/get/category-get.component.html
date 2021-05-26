@@ -17,9 +17,9 @@
           </thead>
           <tbody>
             <tr *ngFor="let category of categories$ | async">
-              <td>{{ category.name }}</td>
+              <td>{{ category.Nome }}</td>
 
-              <td>{{ category.description }}</td>
+              <td>{{ category.Descricao }}</td>
 
               <td class="text-center">
                 <a (click)="delete(category.id)">
