@@ -34,8 +34,10 @@ export class CategoryGetComponent implements OnInit {
    * Remove categoria
    * @param id Código do registro
    */
-  delete(id: number) {
-    if (confirm('Deseja remover este registro?'))
-      this.service.delete(id).subscribe(() => this.get())
+   delete(IdCategoria: number, nome: string) {
+    if (confirm('Deseja remover a categoria ' + nome + '?'))
+      this.service.delete(IdCategoria).subscribe(() => this.get())
   }
+  
 }
+

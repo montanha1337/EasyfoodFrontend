@@ -46,6 +46,6 @@ export class ProductsService {
    * Deleta produto
    */
   delete(id: number): Observable<any> {
-    return this.service.delete(`${this.apiUrl}`, id)
+    return this.service.delete(`${this.apiUrl}`,`deletaproduto`, id)
   }
 }

@@ -37,12 +37,13 @@ import { AdminLoginComponent } from './admin/admin-login/admin-login.component'
 import { MinhaContaComponent } from './pages/account/minha-conta/minha-conta.component'
 import { MeusPedidosComponent } from './pages/account/meus-pedidos/meus-pedidos.component'
 import { LoginComponent } from './pages/login/login.component'
-import { CheckoutComponent } from './pages/checkout/checkout.component'
+import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { AdminSidnavComponent } from './admin/admin-sidnav/admin-sidnav.component'
 
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, HomeComponent, MobileMenuComponent,
-    FoodComponent, AdminLoginComponent, MinhaContaComponent, MeusPedidosComponent, LoginComponent, CheckoutComponent],
+    FoodComponent, AdminLoginComponent, MinhaContaComponent, MeusPedidosComponent, LoginComponent, CheckoutComponent, AdminSidnavComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
