@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core'
 import { Observable } from 'rxjs'
-
 import { CategoryService } from '../category.service'
 
 @Component({
@@ -34,8 +33,8 @@ export class CategoryGetComponent implements OnInit {
    * Remove categoria
    * @param id Código do registro
    */
-  delete(id: number) {
-    if (confirm('Deseja remover este ' + id))
-      this.service.delete(id).subscribe(() => this.get())
+  delete(IdCategoria: number, nome : String) {
+    if (confirm('Deseja remover  a categoria '+ nome+'?'))
+      this.service.delete(IdCategoria).subscribe(() => this.get())
   }
 }

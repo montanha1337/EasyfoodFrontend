@@ -8,6 +8,7 @@
         <table class="table">
           <thead class="thead-light">
             <tr>
+
               <th>Nome</th>
 
               <th>Descrição</th>
@@ -22,7 +23,7 @@
               <td>{{ category.Descricao }}</td>
 
               <td class="text-center">
-                <a (click)="delete(category.id)">
+                <a (click)="delete(category.IdCategoria,category.Nome)">
                   <img class="mr-3" src="../../../../assets/images/delete.svg" alt="deletar registro" height="20" />
                 </a>
 

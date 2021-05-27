@@ -32,7 +32,7 @@ export class ProductsService {
    * Cria novo produto
    */
   post(data: object): Observable<any> {
-    return this.service.post(this.apiUrl, data)
+    return this.service.post(this.apiUrl,`atualizaprodutos`, data)
   }
 
   /**
@@ -46,6 +46,7 @@ export class ProductsService {
    * Deleta produto
    */
   delete(id: number): Observable<any> {
-    return this.service.delete(`${this.apiUrl}`, id)
+    const caminho= 'deletaproduto'
+    return this.service.delete(`${this.apiUrl}`,caminho, id)
   }
 }

@@ -42,8 +42,8 @@ export class CategoryService {
   /**
    * Cria nova categoria
    */
-  post(data: any): Observable<any> {
-    return this.service.post(this.apiUrl, data)
+  post(data: Categories): Observable<any> {
+    return this.service.post(this.apiUrl,`cadastro`, data)
   }
 
   /**
@@ -57,6 +57,7 @@ export class CategoryService {
    * Deleta categoria
    */
   delete(id: number): Observable<any> {
-    return this.service.delete(`${this.apiUrl}`, id)
+    const caminho='deletacategoria'
+    return this.service.delete(`${this.apiUrl}`,caminho, id)
   }
 }
