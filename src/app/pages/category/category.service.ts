@@ -36,21 +36,23 @@ export class CategoryService {
    * Carrega categoria específica
    */
   get(id: string): Observable<any> {
-    return this.service.get(`${this.apiUrl}/${id}`).pipe(take(1))
+    return this.service.get(`${this.apiUrl}/buscarum/${id}`).pipe(take(1))
   }
 
   /**
    * Cria nova categoria
    */
-  post(data: Categories): Observable<any> {
-    return this.service.post(this.apiUrl,`cadastro`, data)
+  post(data: any): Observable<any> {
+    const caminho='cadastro'
+    return this.service.post(this.apiUrl,caminho, data)
   }
 
   /**
    * Atualiza categoria
    */
-  put(data: any): Observable<any> {
-    return this.service.put(this.apiUrl, data.id, data)
+  put(body: any): Observable<any> {
+    const caminho='altera'
+    return this.service.put(this.apiUrl,caminho,body)
   }
 
   /**
