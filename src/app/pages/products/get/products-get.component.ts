@@ -34,8 +34,8 @@ export class ProductsGetComponent implements OnInit {
    * Remove produto
    * @param id Código do registro
    */
-  delete(id: number) {
-    if (confirm('Deseja remover este registro?'))
+  delete(id: number, nome:String) {
+    if (confirm('Deseja remover este produto: '+nome+'?'))
       this.service.delete(id).subscribe(() => this.get())
   }
 }

@@ -49,37 +49,29 @@
     <div class="navbar-right-item">
       <a routerLink="" routerLinkActive="active">Cardápio</a>
     </div>
-    <button mat-icon-button matBadge="0" matBadgeColor="warn" aria-label="Example icon-button with a menu">
+    <!-- <button mat-icon-button matBadge="0" matBadgeColor="warn" aria-label="Example icon-button with a menu">
       <mat-icon>shopping_cart</mat-icon>
-    </button>
+    </button> -->
 
     <!-- <div class="navbar-right-item">
-      <a routerLink="category" routerLinkActive="active">Categoria</a>
-    </div>
-
-    <div class="navbar-right-item">
-      <a routerLink="products" routerLinkActive="active">Produtos</a>
-    </div>
-
-    <div class="navbar-right-item">
-      <a routerLink="order" routerLinkActive="active">Pedidos</a>
+      <a routerLink="order" routerLinkActive="active">Admin</a>
     </div> -->
   </div>
   <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
     <mat-icon>account_circle</mat-icon>
   </button>
   <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <!-- <button mat-menu-item>
       <mat-icon>person</mat-icon>
       <span>Minha conta</span>
-    </button>
-    <button mat-menu-item>
+    </button> -->
+     <button mat-menu-item>
       <mat-icon>list_alt</mat-icon>
-      <span>Meus pedidos</span>
+      <a routerLink="order" routerLinkActive="active">Admin</a>
     </button>
     <button mat-menu-item>
       <mat-icon>logout</mat-icon>
-      <span>Sair</span>
+      <a routerLink="Login">Sair</a>
     </button>
   </mat-menu>
   <ng-template #mobile>

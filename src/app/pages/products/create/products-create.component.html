@@ -14,7 +14,7 @@
     <input
       type="text"
       class="form-control"
-      formControlName="name"
+      formControlName="nome"
       placeholder="Ex: Batata frita"
       autofocus
     />
@@ -24,13 +24,13 @@
     <input
       type="text"
       class="form-control"
-      formControlName="description"
-      placeholder="Acomapanha queijo e bacon"
+      formControlName="descricao"
+      placeholder="Acompanha queijo e bacon"
     />
 
     <label class="input-title">Categoria</label>
 
-    <select class="custom-select" formControlName="idCategory">
+    <select class="custom-select" formControlName="idCategoria">
       <option hidden value="" selected>Selecionar</option>
       <option
         *ngFor="let category of categories$ | async"
@@ -45,7 +45,7 @@
     <input
       type="text"
       class="form-control"
-      formControlName="price"
+      formControlName="valor"
       placeholder="Ex: 30"
     />
 

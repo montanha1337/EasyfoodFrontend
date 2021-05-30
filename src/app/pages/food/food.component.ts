@@ -69,7 +69,7 @@ export class FoodComponent implements OnInit {
 
     this.selectedItems.push(item)
 
-    this.totalPrice += parseInt(item.price)
+    this.totalPrice += parseInt(item.Valor)
   }
 
   /**
@@ -77,7 +77,7 @@ export class FoodComponent implements OnInit {
    */
   removeItem(index: number) {
     this.selectedItems = this.selectedItems.filter((p, i) => {
-      if (i === index) this.totalPrice -= parseInt(p.price)
+      if (i === index) this.totalPrice -= parseInt(p.Valor)
 
       return i !== index
     })

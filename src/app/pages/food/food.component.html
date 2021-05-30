@@ -2,20 +2,19 @@
   <div class="row">
     <div class="col-md-8">
       <div *ngFor="let category of categories$ | async">
-        <h1>{{ category.name }}</h1>
+        <h1>{{ category.Nome }}</h1>
         <div class="row">
           <ng-container *ngFor="let product of products$ | async">
-            <div class="col-12 col-sm-6 col-md-4" *ngIf="category.id == product.idCategory">
+            <div class="col-12 col-sm-6 col-md-4" *ngIf="category.IdCategoria == product.IdCategoria">
               <mat-card class="example-card">
-                <img class="card-image" [src]="product.image" alt="item.descricao" />
-                <!-- <div class="card-content">
-                  <h1 class="card-title">{{ product.name }}</h1>
-                  <p class="card-description">{{ product.description }}</p>
-                  <span class="card-price">R${{ product.price | price }}</span>
-                </div> -->
+                <img class="card-image" [src]="product.LocImagem" alt={{product.locimagem}} />
+                 <div class="card-content">
+                  <h1 class="card-title">{{ product.Nome }}</h1>
+                  <p class="card-description">{{ product.Descricao }}</p>
+                </div>
                 <mat-card-actions>
                   <div class="example-button-container">
-                    <span class="card-price">R$ {{product.price}}</span>
+                    <span class="card-price">R$ {{product.Valor}}</span>
                     <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
                       (click)="selectItem(product)">
                       <mat-icon>shopping_cart</mat-icon>
@@ -32,7 +31,7 @@
       <div class="order">
         <div class="order-title">Itens do pedido</div>
         <p class="order-item" *ngFor="let selected of selectedItems; index as i">
-          {{ selected.name }} x R${{ selected.price}}
+          {{ selected.Nome }} x R${{ selected.Valor}}
           <button mat-icon-button color="warn" aria-label="Example icon button with a delete icon"
             (click)="removeItem(i)">
             <mat-icon>delete</mat-icon>
