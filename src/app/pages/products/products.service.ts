@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core'
 import { ApiService } from 'src/app/core/services/api.service'
 import { Observable } from 'rxjs'
 import { shareReplay, take } from 'rxjs/operators'
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http'
 
 @Injectable({
   providedIn: 'root',
@@ -10,15 +11,21 @@ export class ProductsService {
   /**
    * Caminho da API
    */
-  apiUrl: string = 'products'
+  apiUrl: string = 'produto'
 
   constructor(private service: ApiService) {}
 
   /**
    * Carrega todos os produtos
    */
+  // Headers
+  httpOptions = {
+    headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+  }
   getAll(): Observable<any> {
-    return this.service.get(this.apiUrl).pipe(shareReplay())
+    return this.service.get(`${this.apiUrl}/buscartodos`)
+      .pipe(
+      )
   }
 
   /**
@@ -32,7 +39,8 @@ export class ProductsService {
    * Cria novo produto
    */
   post(data: object): Observable<any> {
-    return this.service.post(this.apiUrl,`atualizaprodutos`, data)
+    const caminho = "cadastro"
+    return this.service.post(this.apiUrl,caminho, data)
   }
 
   /**

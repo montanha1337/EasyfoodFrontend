@@ -34,9 +34,9 @@
       <option hidden value="" selected>Selecionar</option>
       <option
         *ngFor="let category of categories$ | async"
-        [value]="category.id"
+        [value]="category.IdCategoria"
       >
-        {{ category.name }}
+        {{ category.Nome }}
       </option>
     </select>
 
@@ -54,7 +54,7 @@
     <input
       type="text"
       class="form-control"
-      formControlName="image"
+      formControlName="locimagem"
       placeholder="Inserir link da imagem"
     />
 

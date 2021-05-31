@@ -27,14 +27,14 @@
           </thead>
           <tbody>
             <tr *ngFor="let product of products$ | async">
-              <td>{{ product.name }}</td>
+              <td>{{ product.Nome }}</td>
 
-              <td>{{ product.description }}</td>
+              <td>{{ product.Descricao }}</td>
 
-              <td>R$ {{ product.price }}</td>
-
+              <td>R$ {{ product.Valor }}</td>
+                
               <td class="text-center">
-                <a (click)="delete(product.id)">
+                <a (click)="delete(product.Idproduto, product.Nome)">
                   <img
                     class="mr-3"
                     src="../../../../assets/images/delete.svg"
@@ -43,7 +43,7 @@
                   />
                 </a>
 
-                <a [routerLink]="[product.id]">
+                <a [routerLink]="[product.Idproduto]">
                   <img
                     src="../../../../assets/images/edit.svg"
                     alt="editar registro"
