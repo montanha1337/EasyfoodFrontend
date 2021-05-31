@@ -8,13 +8,13 @@
             <div class="col-12 col-sm-6 col-md-4" *ngIf="category.IdCategoria == product.IdCategoria">
               <mat-card class="example-card">
                 <img class="card-image" [src]="product.LocImagem" alt={{product.locimagem}} />
-                 <div class="card-content">
+                <div class="card-content">
                   <h1 class="card-title">{{ product.Nome }}</h1>
                   <p class="card-description">{{ product.Descricao }}</p>
                 </div>
                 <mat-card-actions>
                   <div class="example-button-container">
-                    <span class="card-price">R$ {{product.Valor}}</span>
+                    <span class="card-price">{{product.Valor | currency:'R$ '}}</span>
                     <button mat-fab color="primary" aria-label="Example icon button with a delete icon"
                       (click)="selectItem(product)">
                       <mat-icon>shopping_cart</mat-icon>
@@ -31,7 +31,7 @@
       <div class="order">
         <div class="order-title">Itens do pedido</div>
         <p class="order-item" *ngFor="let selected of selectedItems; index as i">
-          {{ selected.Nome }} x R${{ selected.Valor}}
+          {{ selected.Nome }} x {{ selected.Valor| currency:'R$ '}}
           <button mat-icon-button color="warn" aria-label="Example icon button with a delete icon"
             (click)="removeItem(i)">
             <mat-icon>delete</mat-icon>
@@ -44,7 +44,7 @@
         </p>
         <div class="order-total" *ngIf="totalPrice > 0">
           <h2 class="order-price">Valor total</h2>
-          <h2 *ngIf="totalPrice">R${{ totalPrice }}</h2>
+          <h2 *ngIf="totalPrice">{{ totalPrice | currency:'R$'}}</h2>
         </div>
         <button class="btn-finish" mat-raised-button color="primary" routerLink="checkout"
           routerLinkActive="active">Finalizar pedido</button>

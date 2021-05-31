@@ -31,24 +31,15 @@
 
               <td>{{ product.Descricao }}</td>
 
-              <td>R$ {{ product.Valor }}</td>
-                
+              <td>{{ product.Valor | currency:'R$ '}}</td>
+
               <td class="text-center">
                 <a (click)="delete(product.Idproduto, product.Nome)">
-                  <img
-                    class="mr-3"
-                    src="../../../../assets/images/delete.svg"
-                    alt="deletar registro"
-                    height="20"
-                  />
+                  <img class="mr-3" src="../../../../assets/images/delete.svg" alt="deletar registro" height="20" />
                 </a>
 
                 <a [routerLink]="[product.Idproduto]">
-                  <img
-                    src="../../../../assets/images/edit.svg"
-                    alt="editar registro"
-                    height="20"
-                  />
+                  <img src="../../../../assets/images/edit.svg" alt="editar registro" height="20" />
                 </a>
               </td>
             </tr>
