@@ -3,6 +3,6 @@ export interface Products {
   Descricao: string
   Valor: string
   Nome: string
+  idCategoria: number
   LocImagem: string
-  idcategoria: number
 }
