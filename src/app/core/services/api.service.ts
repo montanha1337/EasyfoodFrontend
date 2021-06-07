@@ -41,4 +41,9 @@ export class ApiService {
       .delete(`${environment.api_url}${path}/${caminho}/${id}`)
       .pipe(catchError(this.formatErrors))
   }
+  login(path: string, caminho : string, body: object): Observable<any> {
+    return this.http
+      .get(`${environment.api_url}${path}/${caminho}`, body)
+      .pipe(catchError(this.formatErrors))
+  }
 }
