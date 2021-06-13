@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core'
 import { CheckoutService } from 'src/app/pages/checkout/checkout.service'
-
-import  {User} from '../../core/models/user.model'
+import { Router } from '@angular/router'
+import { FormControl } from '@angular/forms'
+import { User } from '../../core/models/user.model'
 
 @Component({
   selector: 'app-checkout',
@@ -9,13 +10,23 @@ import  {User} from '../../core/models/user.model'
   styleUrls: ['./checkout.component.scss']
 })
 export class CheckoutComponent implements OnInit {
+  data: any = {}
+  checkout$: any
+  pagamento$: any
+  user: number
+  routeState: any
 
- checkout$: any
- pagamento$:any
- user: Number
- 
 
-   constructor(private service: CheckoutService) { }
+  constructor(private service: CheckoutService, private router: Router) {
+    if (this.router.getCurrentNavigation().extras.state) {
+      this.routeState = this.router.getCurrentNavigation().extras.state
+      if (this.routeState) {
+        this.data.total = this.routeState.total ? this.routeState.total : 0
+        this.data.produtos = this.routeState.produtos ? this.routeState.produtos : []
+      }
+    }
+  }
+
 
   /**
    * Inicialização
@@ -26,7 +37,7 @@ export class CheckoutComponent implements OnInit {
   }
 
   /**
-   * Carrega lista de 
+   * Carrega lista de
    */
   private get() {
     this.user = 1
@@ -35,7 +46,7 @@ export class CheckoutComponent implements OnInit {
   private getPagamento() {
     this.pagamento$ = this.service.get()
   }
-  
+
 
   /**
    * Remove categoria
