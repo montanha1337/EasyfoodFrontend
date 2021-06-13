@@ -4,32 +4,32 @@
   <mat-step [stepControl]="firstFormGroup">
     <ng-template  matStepLabel>Endereço</ng-template>
 
-    <div class="endereco">
+    <div class="endereco"*ngFor="let checkout of checkout$ | async">
       <mat-form-field class="input" appearance="fill">
             <mat-label>CEP</mat-label>
-            <input matInput placeholder="Somente Números">
+            <input matInput value={{checkout.Cep}}>
           </mat-form-field>
           <br>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Logradouro</mat-label>
-            <input matInput placeholder="Rua">
+            <input matInput value={{checkout.Rua}}>
           </mat-form-field>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Número</mat-label>
-            <input matInput placeholder="Ex: 487">
+            <input matInput value={{checkout.Numero}}>
           </mat-form-field>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Complemento</mat-label>
-            <input matInput placeholder="Apto, Bloco ...">
+            <input matInput value={{checkout.Complemento}}>
           </mat-form-field>
           <br>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Bairro</mat-label>
-            <input matInput placeholder="Bairro">
+            <input matInput value={{checkout.Bairro}}>
           </mat-form-field>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Cidade</mat-label>
-            <input matInput placeholder="Cidade">
+            <input matInput value={{checkout.Cidade}}>
           </mat-form-field>
     </div>
 
@@ -42,8 +42,28 @@
   <mat-step [stepControl]="secondFormGroup">
     <ng-template  matStepLabel>Pagamento</ng-template>
     <mat-tab-group mat-align-tabs="center">
-  <mat-tab label="Pague pelo Site"></mat-tab>
-  <mat-tab label="Pague na entrega"></mat-tab>
+
+  <mat-tab label="Forma De Pagamento">
+    
+    <table class="table">
+      
+      <thead class="thead-light">
+        <tr>
+          <th class="text-center">Forma de Pagamento</th>
+          <th>Selecione</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pagamento of pagamento$ | async">
+          <td>{{ pagamento.Nome }}</td>
+
+          <td class="text-center">
+            <input type="checkbox">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </mat-tab>
 </mat-tab-group>
 
     <div class="button">
@@ -55,6 +75,7 @@
     
   <mat-step>
     <ng-template  matStepLabel>Confirmar Dados</ng-template>
+    
 
     <div class="button">
       <button mat-button matStepperPrevious>Voltar</button>

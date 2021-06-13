@@ -15,7 +15,7 @@ export class LoginService {
     httpOptions = {
       headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     }
-    get(body): Observable<any> {
+    post(body): Observable<any> {
         const caminho = "login"
       return this.service.login(`${this.apiUrl}`,caminho,body)
         .pipe(

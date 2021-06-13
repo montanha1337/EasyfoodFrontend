@@ -43,7 +43,7 @@ export class ApiService {
   }
   login(path: string, caminho : string, body: object): Observable<any> {
     return this.http
-      .get(`${environment.api_url}${path}/${caminho}`, body)
+      .post(`${environment.api_url}${path}/${caminho}`, body)
       .pipe(catchError(this.formatErrors))
   }
 }

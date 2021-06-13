@@ -9,3 +9,17 @@
     padding: 10px;
     text-align: center;
 }
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+table, th, td {
+
+  }
+  th, td {
+      text-align: center;
+      padding: 10px;
+  }
+  tr:nth-child(odd) {
+    background-color: #dddddd;
+  }
