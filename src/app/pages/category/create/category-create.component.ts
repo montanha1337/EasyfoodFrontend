@@ -13,7 +13,7 @@ export class CategoryCreateComponent implements OnInit {
   /**
    * Formulário de cadastro
    */
-  form: FormGroup
+ form: FormGroup 
 
   constructor(
     private fb: FormBuilder,
