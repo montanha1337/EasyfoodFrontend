@@ -75,7 +75,73 @@
     
   <mat-step>
     <ng-template  matStepLabel>Confirmar Dados</ng-template>
+
+    <mat-grid-list cols="3" rowHeight="200px" gutterSize=10px>
+      <mat-grid-tile>
+        <mat-card class="card" *ngFor="let checkout of checkout$ | async">
+          <mat-card-title>Endereço</mat-card-title>
+          <mat-card-content>
+            <p>
+              {{checkout.Rua}}, {{checkout.Numero}}, {{checkout.Complemento}}<br>
+              {{checkout.Bairro}}, {{checkout.Cidade}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
     
+      <mat-grid-tile [colspan]="2" [rowspan]="2">
+        <table>
+          <tr>
+            <th>Item</th>
+            <th>Qtd</th>
+            <th>Valor</th>
+          </tr>
+          <tr>
+            <td>Bolo</td>
+            <td>5</td>
+            <td class="valor">R$40,00</td>
+          </tr>
+          <tr>
+            <td>Bolo</td>
+            <td>5</td>
+            <td class="valor">R$40,00</td>
+          </tr>
+          <tr>
+            <td>Bolo</td>
+            <td>5</td>
+            <td class="valor">R$40,00</td>
+          </tr>
+          <tr>
+            <td>Bolo</td>
+            <td>5</td>
+            <td class="valor">R$40,00</td>
+          </tr>
+          <tr>
+            <td>Bolo</td>
+            <td>5</td>
+            <td class="valor">R$40,00</td>
+          </tr>
+    
+    
+          <tr>
+            <td>Valor Total</td>
+            <td></td>
+            <td class="valor">R$500,00</td>
+          </tr>
+        </table>
+      </mat-grid-tile>
+    
+      <mat-grid-tile>
+        <mat-card>
+          <mat-card-title>Forma de Pagamento</mat-card-title>
+          <mat-card-content class="card">
+            <p>
+              Dinheiro
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
 
     <div class="button">
       <button mat-button matStepperPrevious>Voltar</button>
