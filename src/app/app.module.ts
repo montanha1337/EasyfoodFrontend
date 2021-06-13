@@ -18,6 +18,7 @@ import { MatStepperModule } from '@angular/material/stepper'
 import { MatBadgeModule } from '@angular/material/badge'
 import { MatListModule } from '@angular/material/list'
 import {MatGridListModule} from '@angular/material/grid-list'
+import {MatCheckboxModule} from '@angular/material/checkbox'
 
 
 import { AppRoutesModule } from './app.routes'
@@ -46,6 +47,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component'
     FoodComponent, AdminLoginComponent, MinhaContaComponent, MeusPedidosComponent, LoginComponent, CheckoutComponent],
   imports: [
     MatGridListModule,
+    MatCheckboxModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,
