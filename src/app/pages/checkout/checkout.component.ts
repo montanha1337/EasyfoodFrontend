@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { CheckoutService } from 'src/app/pages/checkout/checkout.service'
+import  {User} from '../../core/models/user.model'
 
 @Component({
   selector: 'app-checkout',
@@ -9,6 +10,9 @@ import { CheckoutService } from 'src/app/pages/checkout/checkout.service'
 export class CheckoutComponent implements OnInit {
 
  checkout$: any
+ pagamento$:any
+ user: Number
+ 
 
    constructor(private service: CheckoutService) { }
 
@@ -17,21 +21,27 @@ export class CheckoutComponent implements OnInit {
    */
   ngOnInit() {
     this.get()
+    this.getPagamento()
   }
 
   /**
    * Carrega lista de 
    */
   private get() {
-    this.checkout$ = this.service.getAll()
+    this.user = 1
+    this.checkout$ = this.service.getAll(this.user)
   }
+  private getPagamento() {
+    this.pagamento$ = this.service.get()
+  }
+  
 
   /**
    * Remove categoria
    * @param id Código do registro
    */
-  delete(Idcheckout: number, nome : String) {
-    if (confirm('Deseja remover  a categoria '+ nome+'?'))
+  delete(Idcheckout: number) {
+    if (confirm('Deseja remover  o endereço?'))
       this.service.delete(Idcheckout).subscribe(() => this.get())
   }
 }

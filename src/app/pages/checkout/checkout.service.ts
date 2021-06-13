@@ -26,17 +26,17 @@ export class CheckoutService {
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
-  getAll(): Observable<any> {
-    return this.service.get(`${this.apiUrl}/consultaendereco`)
+  getAll(id: Number): Observable<any> {
+    return this.service.get(`${this.apiUrl}/consultaendereco/`+id)
       .pipe(
       )
   }
 
   /**
-   * Carrega categoria específica
+   * Carrega Endereço
    */
-  get(id: string): Observable<any> {
-    return this.service.get(`${this.apiUrl}/buscarum/${id}`).pipe(take(1))
+  get(): Observable<any> {
+    return this.service.get(`${this.apiUrl}/consultapg`).pipe(take(1))
   }
 
   /**
