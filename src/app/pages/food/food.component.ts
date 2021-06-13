@@ -4,6 +4,7 @@ import { ProductsService } from '../products/products.service'
 import { CategoryService } from '../category/category.service'
 import { Observable } from 'rxjs'
 import { Injectable } from '@angular/core'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-shopping',
@@ -35,7 +36,8 @@ export class FoodComponent implements OnInit {
   constructor(
     private service: FoodService,
     private productsService: ProductsService,
-    private categoryService: CategoryService
+    private categoryService: CategoryService,
+    private router: Router,
   ) { }
 
   /**
@@ -50,6 +52,14 @@ export class FoodComponent implements OnInit {
   /**
    * Carrega lista de produtos
    */
+  routeToCheckout() {
+    this.router.navigate(['/checkout/'], {
+      state: {
+        produtos: this.selectedItems,
+        total: this.totalPrice,
+      }
+    })
+  }
   private getProducts() {
     this.products$ = this.productsService.getAll()
   }
@@ -78,7 +88,6 @@ export class FoodComponent implements OnInit {
   removeItem(index: number) {
     this.selectedItems = this.selectedItems.filter((p, i) => {
       if (i === index) this.totalPrice -= parseInt(p.Valor)
-
       return i !== index
     })
   }
