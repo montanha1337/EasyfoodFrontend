@@ -44,7 +44,7 @@
         </p>
         <div class="order-total" *ngIf="totalPrice > 0">
           <h2 class="order-price">Valor total</h2>
-          <h2 *ngIf="totalPrice">{{ totalPrice | currency:'R$'}}</h2>
+          <h2 *ngIf="totalPrice">{{ totalPrice | currency:'R$ '}}</h2>
         </div>
         <button class="btn-finish" mat-raised-button color="primary" (click)="routeToCheckout()">Finalizar
           pedido</button>
