@@ -1,131 +1,124 @@
 <div class="container">
-  <mat-horizontal-stepper labelPosition="bottom" #stepper>
+<mat-horizontal-stepper labelPosition="bottom" #stepper>
 
-    <mat-step [stepControl]="firstFormGroup">
-      <ng-template matStepLabel>Endereço</ng-template>
+  <mat-step [stepControl]="firstFormGroup">
+    <ng-template  matStepLabel>Endereço</ng-template>
 
-      <div class="endereco" *ngFor="let checkout of checkout$ | async">
-        <mat-form-field class="input" appearance="fill">
-          <mat-label>CEP</mat-label>
-          <input matInput value={{checkout.Cep}}>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="input" appearance="fill">
-          <mat-label>Logradouro</mat-label>
-          <input matInput value={{checkout.Rua}}>
-        </mat-form-field>
-        <mat-form-field class="input" appearance="fill">
-          <mat-label>Número</mat-label>
-          <input matInput value={{checkout.Numero}}>
-        </mat-form-field>
-        <mat-form-field class="input" appearance="fill">
-          <mat-label>Complemento</mat-label>
-          <input matInput value={{checkout.Complemento}}>
-        </mat-form-field>
-        <br>
-        <mat-form-field class="input" appearance="fill">
-          <mat-label>Bairro</mat-label>
-          <input matInput value={{checkout.Bairro}}>
-        </mat-form-field>
-        <mat-form-field class="input" appearance="fill">
-          <mat-label>Cidade</mat-label>
-          <input matInput value={{checkout.Cidade}}>
-        </mat-form-field>
-      </div>
+    <div class="endereco"  *ngFor="let checkout of endereco$ | async">
+      <mat-form-field class="input" appearance="fill">
+            <mat-label>CEP</mat-label>
+            <input matInput value={{checkout.Cep}} [formControl]="cep">
+          </mat-form-field>
+          <br>
+          <mat-form-field class="input" appearance="fill">
+            <mat-label>Logradouro</mat-label>
+            <input matInput type="text" value="{{checkout.Rua}}" [formControl]="rua.submit">
+          </mat-form-field>
+          <mat-form-field class="input" appearance="fill">
+            <mat-label>Número</mat-label>
+            <input matInput value={{checkout.Numero}} [formControl]="numero">
+          </mat-form-field>
+          <mat-form-field class="input" appearance="fill">
+            <mat-label>Complemento</mat-label>
+            <input matInput value={{checkout.Complemento}} [formControl]="complemento">
+          </mat-form-field>
+          <br>
+          <mat-form-field class="input" appearance="fill">
+            <mat-label>Bairro</mat-label>
+            <input matInput value={{checkout.Bairro}} [formControl]="bairro">
+          </mat-form-field>
+          <mat-form-field class="input" appearance="fill">
+            <mat-label>Cidade</mat-label>
+            <input matInput value={{checkout.Cidade}} [formControl]="cidade">
+          </mat-form-field>
+          <div class="button">
+            <button mat-button matStepperNext type="submit" (click)="updateValue()">Próximo</button>
+          </div>
+    </div>
+  </mat-step>
 
+  <mat-step [stepControl]="secondFormGroup" [formGroup]="form">
+    <ng-template  matStepLabel>Pagamento</ng-template>
+    
+    <table>
+      <tr>
+        <th>Forma de Pagamento</th>
+        <th>Selecione</th>
+      </tr>
+      <tr *ngFor="let pagamento of pagamento$ | async">
+        <td>{{pagamento.Nome}}</td>
+        <td>
+          <input
+          type="checkbox"
+          class="form-control"
+          formControlName="Pagamento"
+          autofocus
+        />
+        </td>
+      </tr>   
+    </table>
 
-      <div class="button">
-        <button mat-button matStepperNext>Próximo</button>
-      </div>
-    </mat-step>
+    <div class="button">
+      <button mat-button matStepperPrevious>Voltar</button>
+      <button mat-button matStepperNext  type="submit" >Próximo</button>
+    </div>
+  </mat-step>
 
-    <mat-step [stepControl]="secondFormGroup">
-      <ng-template matStepLabel>Pagamento</ng-template>
-      <mat-tab-group mat-align-tabs="center">
+    
+  <mat-step>
+    <ng-template  matStepLabel>Confirmar Dados</ng-template>
 
-        <mat-tab label="Forma De Pagamento">
+    <mat-grid-list cols="3" rowHeight="200px" gutterSize=10px>
+      <mat-grid-tile>
+        <mat-card class="card">
+          <mat-card-title>Endereço</mat-card-title>
+          <mat-card-content>
+            <p>
+              {{rua.value}}, {{numero.value}}, {{complemento.value}} <br>
+              {{bairro.value}}, {{cidade.value}}, {{cep.value}}
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    
+      <mat-grid-tile [colspan]="2" [rowspan]="2">
+        <table>
+          <tr>
+            <th>Item</th>
+            <th>Qtd</th>
+            <th>Valor</th>
+          </tr>
+          <tr>
+            <td>Bolo</td>
+            <td>5</td>
+            <td class="valor">R$40,00</td>
+          </tr>   
+    
+          <tr>
+            <td>Valor Total</td>
+            <td></td>
+            <td class="valor">R$500,00</td>
+          </tr>
+        </table>
+      </mat-grid-tile>
+    
+      <mat-grid-tile>
+        <mat-card>
+          <mat-card-title>Forma de Pagamento</mat-card-title>
+          <mat-card-content class="card">
+            <p>
+              Dinheiro
+            </p>
+          </mat-card-content>
+        </mat-card>
+      </mat-grid-tile>
+    </mat-grid-list>
 
-          <table class="table">
+    <div class="button">
+      <button mat-button matStepperPrevious>Voltar</button>
+      <button mat-button matStepperNext>Finalizar Pedido</button>
+    </div>
+  </mat-step>
 
-            <thead class="thead-light">
-              <tr>
-                <th class="text-center">Forma de Pagamento</th>
-                <th>Selecione</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr *ngFor="let pagamento of pagamento$ | async">
-                <td>{{ pagamento.Nome }}</td>
-
-                <td class="text-center">
-                  <input type="checkbox">
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </mat-tab>
-      </mat-tab-group>
-
-      <div class="button">
-        <button mat-button matStepperPrevious>Voltar</button>
-        <button mat-button matStepperNext>Próximo</button>
-      </div>
-    </mat-step>
-
-
-    <mat-step>
-      <ng-template matStepLabel>Confirmar Dados</ng-template>
-
-      <mat-grid-list cols="3" rowHeight="200px" gutterSize=10px>
-        <mat-grid-tile>
-          <mat-card class="card" *ngFor="let checkout of checkout$ | async">
-            <mat-card-title>Endereço</mat-card-title>
-            <mat-card-content>
-              <p>
-                {{checkout.Rua}}, {{checkout.Numero}}, {{checkout.Complemento}}<br>
-                {{checkout.Bairro}}, {{checkout.Cidade}}
-              </p>
-            </mat-card-content>
-          </mat-card>
-        </mat-grid-tile>
-
-        <mat-grid-tile [colspan]="2" [rowspan]="2">
-          <table>
-            <tr>
-              <th>Item</th>
-              <th>Qtd</th>
-              <th>Valor</th>
-            </tr>
-            <tr *ngFor="let produto of routeState.produtos">
-              <td>{{ produto.Nome }}</td>
-              <td>5</td>
-              <td class=" valor">{{produto.Valor | currency:'R$ '}}</td>
-            </tr>
-            <tr>
-              <td>Valor Total</td>
-              <td></td>
-              <td class="valor">{{routeState.total | currency:'R$ '}}</td>
-            </tr>
-          </table>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-          <mat-card>
-            <mat-card-title>Forma de Pagamento</mat-card-title>
-            <mat-card-content class="card">
-              <p>
-                Dinheiro
-              </p>
-            </mat-card-content>
-          </mat-card>
-        </mat-grid-tile>
-      </mat-grid-list>
-
-      <div class="button">
-        <button mat-button matStepperPrevious>Voltar</button>
-        <button mat-button matStepperNext>Finalizar Pedido</button>
-      </div>
-    </mat-step>
-
-  </mat-horizontal-stepper>
+</mat-horizontal-stepper>
 </div>

@@ -36,6 +36,7 @@ export class CategoryCreateComponent implements OnInit {
       nome: ['', Validators.required],
       descricao: ['', Validators.required],
     })
+    
   }
 
   /**
