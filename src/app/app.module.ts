@@ -17,6 +17,7 @@ import { MatDialogModule } from '@angular/material/dialog'
 import { MatStepperModule } from '@angular/material/stepper'
 import { MatBadgeModule } from '@angular/material/badge'
 import { MatListModule } from '@angular/material/list'
+import {MatGridListModule} from '@angular/material/grid-list'
 
 
 import { AppRoutesModule } from './app.routes'
@@ -44,6 +45,7 @@ import { CheckoutComponent } from './pages/checkout/checkout.component'
   declarations: [AppComponent, HeaderComponent, HomeComponent, MobileMenuComponent,
     FoodComponent, AdminLoginComponent, MinhaContaComponent, MeusPedidosComponent, LoginComponent, CheckoutComponent],
   imports: [
+    MatGridListModule,
     BrowserModule,
     HttpClientModule,
     FormsModule,

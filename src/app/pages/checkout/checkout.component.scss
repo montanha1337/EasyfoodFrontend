@@ -13,13 +13,29 @@ table {
     border-collapse: collapse;
     width: 100%;
 }
-table, th, td {
-
-  }
   th, td {
       text-align: center;
       padding: 10px;
   }
+  tr:nth-child(odd) {
+    background-color: #dddddd;
+  }
+
+
+    table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+
+  .valor {
+    text-align: right;
+  }
+
+  th,
+  td {
+    padding: 10px;
+  }
+
   tr:nth-child(odd) {
     background-color: #dddddd;
   }

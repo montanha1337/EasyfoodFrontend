@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core'
 import { CheckoutService } from 'src/app/pages/checkout/checkout.service'
+
 import  {User} from '../../core/models/user.model'
 
 @Component({
