@@ -12,7 +12,7 @@
           <br>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Logradouro</mat-label>
-            <input matInput type="text" value="{{checkout.Rua}}" [formControl]="rua.submit">
+            <input matInput type="text" value="{{checkout.Rua}}" [formControl]="rua">
           </mat-form-field>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Número</mat-label>
@@ -32,7 +32,7 @@
             <input matInput value={{checkout.Cidade}} [formControl]="cidade">
           </mat-form-field>
           <div class="button">
-            <button mat-button matStepperNext type="submit" (click)="updateValue()">Próximo</button>
+            <button mat-button matStepperNext type="submit" (click)="Endereco( )">Próximo</button>
           </div>
     </div>
   </mat-step>
@@ -60,7 +60,7 @@
 
     <div class="button">
       <button mat-button matStepperPrevious>Voltar</button>
-      <button mat-button matStepperNext  type="submit" >Próximo</button>
+      <button mat-button matStepperNext  type="submit" (click)="setPagamento(pagamento)">Próximo</button>
     </div>
   </mat-step>
 
@@ -73,9 +73,8 @@
         <mat-card class="card">
           <mat-card-title>Endereço</mat-card-title>
           <mat-card-content>
-            <p>
-              {{rua.value}}, {{numero.value}}, {{complemento.value}} <br>
-              {{bairro.value}}, {{cidade.value}}, {{cep.value}}
+            <p *ngFor="let teste of endereco">
+              {{teste.value}}
             </p>
           </mat-card-content>
         </mat-card>
@@ -88,16 +87,15 @@
             <th>Qtd</th>
             <th>Valor</th>
           </tr>
-          <tr>
-            <td>Bolo</td>
+          <tr *ngFor="let produto of routeState.produtos">
+            <td>{{ produto.Nome }}</td>
             <td>5</td>
-            <td class="valor">R$40,00</td>
-          </tr>   
-    
+            <td class=" valor">{{produto.Valor | currency:'R$ '}}</td>
+          </tr>
           <tr>
             <td>Valor Total</td>
             <td></td>
-            <td class="valor">R$500,00</td>
+            <td class="valor">{{routeState.total | currency:'R$ '}}</td>
           </tr>
         </table>
       </mat-grid-tile>
@@ -106,8 +104,8 @@
         <mat-card>
           <mat-card-title>Forma de Pagamento</mat-card-title>
           <mat-card-content class="card">
-            <p>
-              Dinheiro
+            <p >
+              
             </p>
           </mat-card-content>
         </mat-card>
