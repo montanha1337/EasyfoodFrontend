@@ -21,13 +21,43 @@ export class CheckoutComponent implements OnInit {
  bairro= new FormControl('');
  cidade =new FormControl(''); 
  pedido: FormGroup
+ data: any = {}
+ routeState: any
+ endereco = []
+ Pag: any
+ 
  
 
    constructor(
      private service: CheckoutService,
      private fb: FormBuilder,
      private router: Router
-     ) {}
+     ) {
+      if (this.router.getCurrentNavigation().extras.state) {
+        this.routeState = this.router.getCurrentNavigation().extras.state
+        if (this.routeState) {
+          this.data.total = this.routeState.total ? this.routeState.total : 0
+          this.data.produtos = this.routeState.produtos ? this.routeState.produtos : []
+        }
+      }
+    }
+    Endereco() {
+    if(this.rua 
+      &&this.numero 
+      &&this.complemento 
+      &&this.bairro
+      &&this.cidade){
+        this.endereco.push(this.rua)
+      this.endereco.push(this.numero) 
+      this.endereco.push(this.complemento) 
+      this.endereco.push(this.bairro)
+      this.endereco.push(this.cidade)
+    }else
+    this.endereco.push(this.endereco$)
+  }
+  setPagamento(forma: any){
+    this.Pag.push(forma)
+  }
 
   /**
    * Inicialização
@@ -39,6 +69,7 @@ export class CheckoutComponent implements OnInit {
     
     
   }
+  
 
   /**
    * Carrega lista de
@@ -48,9 +79,7 @@ export class CheckoutComponent implements OnInit {
     this.endereco$ = await this.service.getAll(this.user)
     return this.endereco$
   }
-  updateValue() {
-    
-  }
+
 
     /**
    * Carrega lista de pagamento
@@ -92,6 +121,11 @@ export class CheckoutComponent implements OnInit {
         Object.keys(this.pedido.controls).forEach(campo =>
           this.pedido.get(campo).markAsTouched()
         )
+    }
+    selectItem(item: any) {
+      console.log(this.endereco)
+  
+      this.endereco.push(item)
     }
   
 }
