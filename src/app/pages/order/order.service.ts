@@ -10,7 +10,7 @@ export class OrderService {
   /**
    * Caminho da API
    */
-  apiUrl: string = 'orders'
+  apiUrl: string = 'pedido'
 
   constructor(private service: ApiService) {}
 
@@ -18,7 +18,8 @@ export class OrderService {
    * Carrega todos os pedidos
    */
   getAll(): Observable<any> {
-    return this.service.get(this.apiUrl).pipe(shareReplay())
+    const caminho = "/buscartodos"
+    return this.service.get(this.apiUrl+caminho).pipe(shareReplay())
   }
 
   /**

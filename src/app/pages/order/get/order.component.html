@@ -20,16 +20,18 @@
 
               <th>Cliente</th>
 
-              <th class="text-center">Detalhes</th>
+              <th>Pagamento</th>
             </tr>
           </thead>
           <tbody>
             <tr *ngFor="let order of orders$ | async">
-              <td>{{ order.id }}</td>
+              <td>{{ order.IdPedido }}</td>
 
-              <td>{{ order.totalPrice }}</td>
+              <td>{{ order.Total | currency:'R$ '}}</td>
 
-              <td>{{ order.user }}</td>
+              <td>{{ order.Nome }}</td>
+
+              <td>{{ order.Pagamento }}</td>
 
               <td class="text-center"></td>
             </tr>

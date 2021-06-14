@@ -12,7 +12,8 @@ import { LoginService } from './login.service'
 })
 export class LoginComponent implements OnInit {
 
- form: FormGroup 
+ form: FormGroup
+ user: any 
 
   constructor(
     private fb: FormBuilder,
@@ -28,7 +29,7 @@ export class LoginComponent implements OnInit {
 
   private createForm() {
     this.form = this.fb.group({
-      email: ['', Validators.required],
+      email: [, Validators.required],
       password: ['', Validators.required],
     })
   }
@@ -36,9 +37,9 @@ export class LoginComponent implements OnInit {
 
   submit() {
     if (this.form.valid)
-      this.service
+      this.user=this.service
         .post(this.form.value)
-        .subscribe(() => this.router.navigate(['/']))
+         .subscribe(() => this.router.navigate(['/']))
     else
       Object.keys(this.form.controls).forEach(campo =>
         this.form.get(campo).markAsTouched()

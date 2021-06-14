@@ -5,14 +5,15 @@
     <ng-template  matStepLabel>Endereço</ng-template>
 
     <div class="endereco"  *ngFor="let checkout of endereco$ | async">
+      <label style="text-align: center;">Confirme seu Endereço</label><br>
       <mat-form-field class="input" appearance="fill">
             <mat-label>CEP</mat-label>
-            <input matInput value={{checkout.Cep}} [formControl]="cep">
+            <input matInput type="text" value={{checkout.Cep}} [formControl]="cep">
           </mat-form-field>
           <br>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Logradouro</mat-label>
-            <input matInput type="text" value="{{checkout.Rua}}" [formControl]="rua">
+            <input matInput type="" value="{{checkout.Rua}}" [formControl]="rua">
           </mat-form-field>
           <mat-form-field class="input" appearance="fill">
             <mat-label>Número</mat-label>
@@ -32,7 +33,7 @@
             <input matInput value={{checkout.Cidade}} [formControl]="cidade">
           </mat-form-field>
           <div class="button">
-            <button mat-button matStepperNext type="submit" (click)="Endereco( )">Próximo</button>
+            <button mat-button matStepperNext type="submit">Próximo</button>
           </div>
     </div>
   </mat-step>
@@ -40,27 +41,23 @@
   <mat-step [stepControl]="secondFormGroup" [formGroup]="form">
     <ng-template  matStepLabel>Pagamento</ng-template>
     
-    <table>
-      <tr>
-        <th>Forma de Pagamento</th>
-        <th>Selecione</th>
-      </tr>
-      <tr *ngFor="let pagamento of pagamento$ | async">
-        <td>{{pagamento.Nome}}</td>
-        <td>
-          <input
-          type="checkbox"
-          class="form-control"
-          formControlName="Pagamento"
-          autofocus
-        />
-        </td>
-      </tr>   
-    </table>
+    <div class="form-row">
+      <div class="form-group col col-lg-6" >
+          <label for="rtypes" class="">Selecione um método de pagamento</label>
+
+          <div class="form-check" *ngFor="let pagamento of pagamento$ | async">
+              <input class="form-check-input" type="radio" name="radiobutton" id={{pagamento.IdPagamento}} value={{pagamento.Nome}} checked [formControl]="pag">
+              <label class="form-check-label" for="radiobutton1" >
+                  {{pagamento.Nome}}
+              </label>
+          </div>
+
+      </div>
+  </div>
 
     <div class="button">
       <button mat-button matStepperPrevious>Voltar</button>
-      <button mat-button matStepperNext  type="submit" (click)="setPagamento(pagamento)">Próximo</button>
+      <button mat-button matStepperNext  type="submit" >Próximo</button>
     </div>
   </mat-step>
 
@@ -73,8 +70,8 @@
         <mat-card class="card">
           <mat-card-title>Endereço</mat-card-title>
           <mat-card-content>
-            <p *ngFor="let teste of endereco">
-              {{teste.value}}
+            <p >
+              {{rua.value}}, {{numero.value}}, {{complemento.value}}<br>{{bairro.value}}, {{cidade.value}}, {{cep.value}} 
             </p>
           </mat-card-content>
         </mat-card>
@@ -105,7 +102,7 @@
           <mat-card-title>Forma de Pagamento</mat-card-title>
           <mat-card-content class="card">
             <p >
-              
+              {{pag.value}}
             </p>
           </mat-card-content>
         </mat-card>
@@ -114,7 +111,7 @@
 
     <div class="button">
       <button mat-button matStepperPrevious>Voltar</button>
-      <button mat-button matStepperNext>Finalizar Pedido</button>
+      <button mat-button matStepperNext type="submit" (click)="FinalizaPedido()">Finalizar Pedido</button>
     </div>
   </mat-step>
 
