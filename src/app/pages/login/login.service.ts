@@ -15,7 +15,7 @@ export class LoginService {
   /**
    * Caminho da API
    */
-  apiUrl: string = 'checkout'
+  apiUrl: string = 'user'
 
   constructor(private service: ApiService) { }
 
@@ -27,7 +27,7 @@ export class LoginService {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   }
   getAll(id: Number): Observable<Endereco> {
-    return this.service.get(`${this.apiUrl}/consultaendereco/`+id)
+    return this.service.get(`${this.apiUrl}\buscartodos`)
       .pipe(
       )
   }
@@ -36,14 +36,14 @@ export class LoginService {
    * Carrega Endereço
    */
   get(): Observable<any> {
-    return this.service.get(`${this.apiUrl}/consultapg`).pipe(take(1))
+    return this.service.get(`${this.apiUrl}\login`).pipe(take(1))
   }
 
   /**
-   * Cria nova categoria
+   * faz login
    */
   post(data: any): Observable<any> {
-    const caminho='cadastro'
+    const caminho='login'
     return this.service.post(this.apiUrl,caminho, data)
   }
 

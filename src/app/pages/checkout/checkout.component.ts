@@ -19,12 +19,12 @@ export class CheckoutComponent implements OnInit {
  numero= new FormControl('');
  complemento =new FormControl('');
  bairro= new FormControl('');
- cidade =new FormControl(''); 
- pedido: FormGroup
+ cidade =new FormControl('');
+ pag =new FormControl(''); 
+ pedido =[]
  data: any = {}
  routeState: any
  endereco = []
- Pag: any
  
  
 
@@ -33,6 +33,7 @@ export class CheckoutComponent implements OnInit {
      private fb: FormBuilder,
      private router: Router
      ) {
+      this.user = 1
       if (this.router.getCurrentNavigation().extras.state) {
         this.routeState = this.router.getCurrentNavigation().extras.state
         if (this.routeState) {
@@ -55,9 +56,6 @@ export class CheckoutComponent implements OnInit {
     }else
     this.endereco.push(this.endereco$)
   }
-  setPagamento(forma: any){
-    this.Pag.push(forma)
-  }
 
   /**
    * Inicialização
@@ -65,7 +63,6 @@ export class CheckoutComponent implements OnInit {
   ngOnInit() {
     this.get().then()
     this.getPagamento()
-    this.createForm()
     
     
   }
@@ -75,7 +72,7 @@ export class CheckoutComponent implements OnInit {
    * Carrega lista de
    */
   private async get() {
-    this.user = 1
+    //this.user = 1
     this.endereco$ = await this.service.getAll(this.user)
     return this.endereco$
   }
@@ -90,37 +87,19 @@ export class CheckoutComponent implements OnInit {
     /**
    * Cria Formulário
    */
-  private createForm() {
-    // this.ende$ = this.fb.group({
-    //   idendereco:this.endereco$.Id,
-    //   rua: ['', Validators.required],
-    //   complemento: ['', Validators.required],
-    //   bairro: ['', Validators.required],
-    //   numero: ['', Validators.required],
-    //   cidade: ['', Validators.required],
-    // })
-    // this.pagamento = this.fb.group({
-    //   idpagamento:this.pagamento$.id,
-    //   pg: ['', Validators.required],
-    // })
-    this.pedido = this.fb.group({
-      user: ['', Validators.required],
-      idendereco:this.cep,
-      pg: this.getPagamento(),
-    })
-  }
+
     /**
    * Cria novo Pedido
    */
-     submit() {
-      if (this.pedido.valid)
+     FinalizaPedido( pg:any) {
+      this.pedido.push('user:'+this.user)
+      this.pedido.push('total:'+this.data.total)
+      this.pedido.push('pg:'+ this.pag.value)
+      console.log(this.pedido)
+      if (this.pedido)
         this.service
-          .post(this.pedido.value)
+          .post(this.pedido)
           .subscribe(() => this.router.navigate(['/']))
-      else
-        Object.keys(this.pedido.controls).forEach(campo =>
-          this.pedido.get(campo).markAsTouched()
-        )
     }
     selectItem(item: any) {
       console.log(this.endereco)

@@ -13,25 +13,25 @@
           <mat-card-content class="content">
             <form [formGroup]="form" (ngSubmit)="submit()">
               <mat-form-field class="input" appearance="fill">
-                <input matInput type="email" placeholder="E-Mail"class="form-control">
+                <input matInput type="email" placeholder="E-Mail"class="form-control" formControlName="email">
               </mat-form-field>
 
               <mat-form-field class="input" appearance="fill">
-                <input matInput type="password" placeholder="Senha" [type]="hide ? 'password' : 'text'"class="form-control">
+                <input matInput type="password" placeholder="Senha" [type]="hide ? 'text' : 'password'"class="form-control" formControlName="password">
                 <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
                 <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
                 </button>
               </mat-form-field>
+              <mat-card-actions>
+                <btn
+                class="btn-success btn-lg bold mr-2"
+                type="submit"
+                label="Entrar"
+              >
+              </btn>
+              </mat-card-actions>
             </form>
 
-            <mat-card-actions>
-              <btn
-              class="btn-success btn-lg bold mr-2"
-              type="submit"
-              label="Login"
-            >
-            </btn>
-            </mat-card-actions>
           </mat-card-content>
         </mat-tab>
   
