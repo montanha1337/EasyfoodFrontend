@@ -45,9 +45,10 @@
   border-bottom: 1px solid #eee;
   margin-top: 1rem;
   display: flex;
-  align-items: center;
+  align-items: left;
+  text-align: left;
   justify-content: space-around;
-  vertical-align: center;
+  vertical-align: left;
 }
 
 .order-total {
