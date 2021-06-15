@@ -21,7 +21,7 @@ export class CheckoutComponent implements OnInit {
  bairro= new FormControl('');
  cidade =new FormControl('');
  pag =new FormControl(''); 
- pedido =[]
+ pedido: FormGroup
  data: any = {}
  routeState: any
  endereco = []
@@ -42,20 +42,6 @@ export class CheckoutComponent implements OnInit {
         }
       }
     }
-    Endereco() {
-    if(this.rua 
-      &&this.numero 
-      &&this.complemento 
-      &&this.bairro
-      &&this.cidade){
-        this.endereco.push(this.rua)
-      this.endereco.push(this.numero) 
-      this.endereco.push(this.complemento) 
-      this.endereco.push(this.bairro)
-      this.endereco.push(this.cidade)
-    }else
-    this.endereco.push(this.endereco$)
-  }
 
   /**
    * Inicialização
@@ -87,18 +73,23 @@ export class CheckoutComponent implements OnInit {
     /**
    * Cria Formulário
    */
+     private createForm() {
+      this.pedido = this.fb.group({
+        user: this.user,
+        total:this.data.total,
+        pg:this.pag.value
+      })
+      
+    }
 
     /**
    * Cria novo Pedido
    */
      FinalizaPedido( pg:any) {
-      this.pedido.push('user:'+this.user)
-      this.pedido.push('total:'+this.data.total)
-      this.pedido.push('pg:'+ this.pag.value)
-      console.log(this.pedido)
+       this.createForm()
       if (this.pedido)
         this.service
-          .post(this.pedido)
+          .post(this.pedido.value)
           .subscribe(() => this.router.navigate(['/']))
     }
     selectItem(item: any) {
